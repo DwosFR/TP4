@@ -2,9 +2,11 @@
 Auteur : Valynseele Alexis
 Date :  26/11/2019 - Seance 1
 Titre : TP 4 - DA (9h)
-Fichier .h : prototype des fonctions de ma_bibliotheque
+Fichier C : Main
 
 **************************************************************/
+
+//Pre-processeur
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,7 +15,10 @@ Fichier .h : prototype des fonctions de ma_bibliotheque
 #include <string.h>
 #include <assert.h>
 #include <stdarg.h>
+#include "..\headers\ma_bibliotheque.h"
 
-
-//Protypes
-void menu();
+int main()
+{
+    menu();
+    return 0;
+}

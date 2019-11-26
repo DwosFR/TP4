@@ -2,7 +2,7 @@
 Auteur : Valynseele Alexis
 Date :  26/11/2019 - Seance 1
 Titre : TP 4 - DA (9h)
-Fichier .h : prototype des fonctions de ma_bibliotheque
+Fichier .h : prototype des fonctions de ma_bibliotheque.c
 
 **************************************************************/
 
@@ -18,6 +18,4 @@ Fichier .h : prototype des fonctions de ma_bibliotheque
 
 //Prototypes
 
-int nbMots(char nom[]); 
-char **creationTabMotsDynamique(char nom[], int nbMots);
-void affichageTabMotsDynamique(char **tabMots, int nbMots);
+void menu();

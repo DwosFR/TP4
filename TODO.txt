@@ -2,25 +2,32 @@
 Auteur : Valynseele Alexis
 Date :  26/11/2019 - Seance 1
 Titre : TP 4 - DA (9h)
+Fichier TODO.txt
 **************************************************************/
 
-SEANCE 1 :
+SEANCE 1 : 26/11/2019
 
 1ere Heure:
 
-Creation du repo
+Creation du repo TP4-DA
 Creation des fichiers README et TODO
-Creation des fichiers main.c et ma_bibliotheque.c/.h - 20-30 min perdu sur comprendre comment compiler separement en ligne de commande
+Creation des fichiers main.c et ma_bibliotheque.c et son entete .h - 20-30 min perdu sur comprendre comment compiler separement en ligne de commande
 Mise en lien avec GitHub : https://github.com/DwosFR/TP-4-DA
 
 2ème Heure : 
 
-Avancement Partie I :
+Partie I :
 
--10h10min Creation du fichier tabs_mots_dynamique
+-10h10min Creation du fichier tabs_mots_dynamique.c et son entete .h
 -10h15min Creation d'une fonction permettant de recuperer le nombre de mots dans un fichier txt
 -10h30min Creation des fonctions permettant la creation et l'affichage d'un tableau de mots dynamique a partir d'un fichier txt 
 -10h45min Creation d'une fonction testPartieI pour tester le tableau de mots dynamique dans dans ma_bibliotheque
 
+3ème Heure :
 
-A faire : 
+-11h Creation d'une fonction de recherche de chaîne dans le tab mots
+-11h20min Temps perdu a essayer de comprendre comment fonctionne gitignore, ne marche toujours pas, changement de repo sur GithHub : https://github.com/DwosFR/TP4
+-11h30 Fonction recherche chaîne terminée, changements des noms des dossiers 
+-11h45 Fonction d'ajout d'un mot en fin de fichier avec fprintf
+
+A faire : //// 

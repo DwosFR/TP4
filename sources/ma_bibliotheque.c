@@ -13,14 +13,17 @@ Fichier C : Repertoire de fonctions sans rapport direct avec le probleme
 #include <string.h>
 #include <assert.h>
 #include <stdarg.h>
-#include "..\prototypes\tab_mots_dynamique.h"
+#include "..\headers\tab_mots_dynamique.h"
 
-void testPartieI(){
-    int i = nbMots(".\\Fichiers\\liste_dev.txt");
-    printf("%d\n",i);
+void testPartieI()
+{
+    int nb = nbMots(".\\files\\liste_dev.txt");
+    printf("%d\n", nb);
 
-    char** tabMots = creationTabMotsDynamique(".\\Fichiers\\liste_dev.txt",i);
-    affichageTabMotsDynamique(tabMots,i);
+    char **tabMots = creationTabMotsDynamique(".\\files\\liste_dev.txt", nb);
+    //affichageTabMotsDynamique(tabMots,i);
+    affichageRechercheString(tabMots, nb, "TEND");
+    ajoutMotFindeFichier(".\\files\\liste_dev_perso.txt","TEST");
 }
 
 void menu()

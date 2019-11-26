@@ -2,7 +2,7 @@
 Auteur : Valynseele Alexis
 Date :  26/11/2019 - Seance 1
 Titre : TP 4 - DA (9h)
-Fichier : Main
+Fichier .h : prototype des fonctions de tab_mots_dynamique.c
 
 **************************************************************/
 
@@ -15,11 +15,11 @@ Fichier : Main
 #include <string.h>
 #include <assert.h>
 #include <stdarg.h>
-#include "..\prototypes\ma_bibliotheque.h"
 
+//Prototypes
 
-int main()
-{
-    menu();
-    return 0;
-}
+int nbMots(char nom[]);
+char **creationTabMotsDynamique(char nom[], int nbMots);
+void affichageTabMotsDynamique(char **tabMots, int nbMots);
+void affichageRechercheString(char **tabMots, int nbMots, char string[]);
+void ajoutMotFindeFichier(char nom[], char string[]);

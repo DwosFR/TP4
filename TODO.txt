@@ -1,0 +1,26 @@
+/**************************************************************
+Auteur : Valynseele Alexis
+Date :  26/11/2019 - Seance 1
+Titre : TP 4 - DA (9h)
+**************************************************************/
+
+SEANCE 1 :
+
+1ere Heure:
+
+Creation du repo
+Creation des fichiers README et TODO
+Creation des fichiers main.c et ma_bibliotheque.c/.h - 20-30 min perdu sur comprendre comment compiler separement en ligne de commande
+Mise en lien avec GitHub : https://github.com/DwosFR/TP-4-DA
+
+2ème Heure : 
+
+Avancement Partie I :
+
+-10h10min Creation du fichier tabs_mots_dynamique
+-10h15min Creation d'une fonction permettant de recuperer le nombre de mots dans un fichier txt
+-10h30min Creation des fonctions permettant la creation et l'affichage d'un tableau de mots dynamique a partir d'un fichier txt 
+-10h45min Creation d'une fonction testPartieI pour tester le tableau de mots dynamique dans dans ma_bibliotheque
+
+
+A faire : 

@@ -5,4 +5,4 @@ TP 4 - Developpement d'Application (9h) - UPHF
 gcc -o TP4 -Wall -Wextra -pedantic ".\sources\main.c" ".\sources\ma_bibliotheque.c" ".\sources\tab_mots_dynamique.c"
 
 # Lien GitHub
-https://github.com/DwosFR/TP4
+https://github.com/ValynseeleAlexis/TP4

@@ -83,3 +83,27 @@ void ajoutMotFindeFichier(char nom[], char string[])
     fprintf(f,"\n%s",string);
     fclose(f);
 }
+
+//4
+void ajoutMotLigneIFichier(char nom[],char string[],int pos,int nbMots){
+    FILE *f1, *f2;
+    int i;
+    char buffer[256];
+
+    assert(f1 = fopen(nom,"r"));
+    assert(f2 = fopen(".\\files\\test.txt", "w"));
+
+    for(i = 0;i<pos-1;i++){
+        fgets(buffer,256,f1);
+        fprintf(f2,"%s",buffer);
+    }
+    fprintf(f2,"%s\n",string);
+    for(i = pos;i<nbMots;i++){
+        fgets(buffer,256,f1);
+        fprintf(f2,"%s", buffer);
+    }
+    fclose(f1);
+    fclose(f2);
+    remove(nom);
+    rename(".\\files\\test.txt",nom);
+}

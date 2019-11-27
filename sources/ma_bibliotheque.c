@@ -18,12 +18,13 @@ Fichier C : Repertoire de fonctions sans rapport direct avec le probleme
 void testPartieI()
 {
     int nb = nbMots(".\\files\\liste_dev.txt");
-    printf("%d\n", nb);
+    //printf("%d\n", nb);
 
     char **tabMots = creationTabMotsDynamique(".\\files\\liste_dev.txt", nb);
     //affichageTabMotsDynamique(tabMots,i);
-    affichageRechercheString(tabMots, nb, "TEND");
-    ajoutMotFindeFichier(".\\files\\liste_dev_perso.txt","TEST");
+    //affichageRechercheString(tabMots, nb, "TEND");
+    //ajoutMotFindeFichier(".\\files\\liste_dev_perso.txt","TEST");
+    ajoutMotLigneIFichier(".\\files\\liste_dev.txt","CHOUCROUTE",3,nb);
 }
 
 void menu()

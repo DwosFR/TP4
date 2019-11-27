@@ -30,4 +30,15 @@ Partie I :
 -11h30 Fonction recherche chaîne terminée, changements des noms des dossiers 
 -11h45 Fonction d'ajout d'un mot en fin de fichier avec fprintf
 
-A faire : //// 
+FIN SEANCE 1
+
+27/11/2019:
+
+-Ajout de void ajoutMotLigneIFichier(char nom[],char string[],int pos,int nbMots) qui permet "d'ajouter un mot dans le fichier" a la ligne voulu.
+    En fait la fonction copie le fichier d'origine dans un nouveau fichier jusqu'a la postion voulu ou il rajoute le mot donné puis il copie le reste,il renomme le nouveau fichier avec le nom du fichier d'origne et supprime celui-ci.
+
+-Ajout de commentaire sur tout le code déjà écrit.
+
+-Update du gitignore qui permet d'éviter de suivre les fichiers .vscode avec la fonction git add . 
+
+-

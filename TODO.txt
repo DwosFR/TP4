@@ -12,7 +12,7 @@ SEANCE 1 : 26/11/2019
 Creation du repo TP4-DA
 Creation des fichiers README et TODO
 Creation des fichiers main.c et ma_bibliotheque.c et son entete .h - 20-30 min perdu sur comprendre comment compiler separement en ligne de commande
-Mise en lien avec GitHub : https://github.com/DwosFR/TP-4-DA
+Mise en lien avec GitHub : https://github.com/ValynseeleAlexis/TP4
 
 2ème Heure : 
 
@@ -26,7 +26,7 @@ Partie I :
 3ème Heure :
 
 -11h Creation d'une fonction de recherche de chaîne dans le tab mots
--11h20min Temps perdu a essayer de comprendre comment fonctionne gitignore, ne marche toujours pas, changement de repo sur GithHub : https://github.com/ValynseeleAlexis/TP4
+-11h20min Temps perdu a essayer de comprendre comment fonctionne gitignore, ne marche toujours pas.
 -11h30 Fonction recherche chaîne terminée, changements des noms des dossiers 
 -11h45 Fonction d'ajout d'un mot en fin de fichier avec fprintf
 
@@ -41,5 +41,3 @@ FIN SEANCE 1
 
 -Update du gitignore qui permet d'éviter de suivre les fichiers .vscode avec la fonction git add . 
 
-
--

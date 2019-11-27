@@ -107,3 +107,16 @@ void ajoutMotLigneIFichier(char nom[],char string[],int pos,int nbMots){
     remove(nom);
     rename(".\\files\\test.txt",nom);
 }
+
+//10
+
+void freeTabMotsDynamique(char **tabMots,int nbMots){
+    int i;
+    for(i = 0;i<nbMots;i++){
+        free(tabMots[i]);
+        tabMots[i] = NULL;
+    }
+    free(tabMots);
+    tabMots = NULL;
+}
+

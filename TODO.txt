@@ -39,5 +39,7 @@ FIN SEANCE 1
 
 -Ajout de commentaire sur tout le code déjà écrit.
 
--Update du gitignore qui permet d'éviter de suivre les fichiers .vscode avec la fonction git add . 
+-Update du gitignore qui permet d'éviter de suivre les fichiers .vscode avec la fonction git add .
+
+-Ajout de void freeTabMotsDynamique(char **tabMots,int nbMots) permettant de liberer le tableau dynamique de mots.
 

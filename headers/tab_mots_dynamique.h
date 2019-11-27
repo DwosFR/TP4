@@ -24,3 +24,4 @@ void affichageTabMotsDynamique(char **tabMots, int nbMots);
 void affichageRechercheString(char **tabMots, int nbMots, char string[]);
 void ajoutMotFindeFichier(char nom[], char string[]);
 void ajoutMotLigneIFichier(char nom[],char string[],int pos,int nbMots);
+void freeTabMotsDynamique(char **tabMots, int nbMots);

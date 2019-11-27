@@ -25,6 +25,7 @@ void testPartieI()
     //affichageRechercheString(tabMots, nb, "TEND");
     //ajoutMotFindeFichier(".\\files\\liste_dev_perso.txt","TEST");
     ajoutMotLigneIFichier(".\\files\\liste_dev.txt","CHOUCROUTE",3,nb);
+    freeTabMotsDynamique(tabMots,nb);
 }
 
 void menu()

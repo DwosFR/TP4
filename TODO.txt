@@ -9,9 +9,9 @@ SEANCE 1 : 26/11/2019
 
 1ere Heure:
 
-Creation du repo TP4-DA
+Creation du repo TP4
 Creation des fichiers README et TODO
-Creation des fichiers main.c et ma_bibliotheque.c et son entete .h - 20-30 min perdu sur comprendre comment compiler separement en ligne de commande
+Creation des fichiers main.c et ma_bibliotheque.c et son entete .h
 Mise en lien avec GitHub : https://github.com/ValynseeleAlexis/TP4
 
 2ème Heure : 
@@ -21,12 +21,12 @@ Partie I :
 -10h10min Creation du fichier tabs_mots_dynamique.c et son entete .h
 -10h15min Creation d'une fonction permettant de recuperer le nombre de mots dans un fichier txt
 -10h30min Creation des fonctions permettant la creation et l'affichage d'un tableau de mots dynamique a partir d'un fichier txt 
--10h45min Creation d'une fonction testPartieI pour tester le tableau de mots dynamique dans dans ma_bibliotheque
+-10h45min Creation d'une fonction testPartieI pour tester le tableau de mots dynamique dans dans ma_bibliotheque.c
 
 3ème Heure :
 
 -11h Creation d'une fonction de recherche de chaîne dans le tab mots
--11h20min Temps perdu a essayer de comprendre comment fonctionne gitignore, ne marche toujours pas.
+-11h20min Temps perdu a essayer de comprendre comment fonctionne gitignore.
 -11h30 Fonction recherche chaîne terminée, changements des noms des dossiers 
 -11h45 Fonction d'ajout d'un mot en fin de fichier avec fprintf
 

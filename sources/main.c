@@ -17,6 +17,7 @@ Fichier C : Main
 #include <stdarg.h>
 #include "..\headers\ma_bibliotheque.h"
 
+//Fonction principale du programme,permet de lancer le menu
 int main()
 {
     menu();

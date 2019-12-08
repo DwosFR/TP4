@@ -26,7 +26,7 @@ Partie I :
 3ème Heure :
 
 -11h Creation d'une fonction de recherche de chaîne dans le tab mots
--11h20min Temps perdu a essayer de comprendre comment fonctionne gitignore.
+-11h20min Temps perdu a essayer de comprendre comment fonctionne gitignore
 -11h30 Fonction recherche chaîne terminée, changements des noms des dossiers 
 -11h45 Fonction d'ajout d'un mot en fin de fichier avec fprintf
 
@@ -41,5 +41,32 @@ FIN SEANCE 1
 
 -Update du gitignore qui permet d'éviter de suivre les fichiers .vscode avec la fonction git add .
 
--Ajout de void freeTabMotsDynamique(char **tabMots,int nbMots) permettant de liberer le tableau dynamique de mots.
+-Ajout de void freeTabMotsDynamique(char **tabMots,int nbMots) permettant de liberer le tableau dynamique de mots
 
+
+08/12/2019 : 
+
+-Ajout d'une fonction de comparaison entre deux mots selon l'ordre lexicographique
+
+-Ajout d'une fonction de tri à bulles du tableau de mots selon l'ordre lexicographique, permet aussi de recuperer le temps d'excution du tri
+
+-Ajout d'une fonction d'écriture du tableau de mots dans un fichier dont le nom est passé en paramètre
+
+-Ajout d'une fonction de calcul de points selon le barème du polycopié
+On utilise un tableau bareme contenant aux indices correspondant aux codes ascii des lettres en majuscules les valeurs du bareme
+Ainsi pour savoir la valeur d'une lettre d'un mot il suffit de faire bareme['lettre'], la valeur ascii de la lettre permettant d'acceder a sa valeur dans le bareme
+
+-Ajout d'une fonction de creation de bareme permettant à l'aide du fichier lettre_pts.txt de créer un tableau bareme comme-celui utilisé dans la fonction de calcul de points
+Pour se faire on recupere chaque ligne du fichier,on regarde la lette (buffer[0]) et l'on mets la valeur de la lettre(buffer[2]) au bon indice dans le tableau bareme (donc en fonction du code ascii de la lettre en majuscule)
+
+-Ajout d'une fonction de calcul de points selon le bareme situé dans lettre_pts.txt
+Il s'agit du même code que celui utilisé dans la fonction de calcul de points, la seul différence étant que le tableau bareme est crée a l'aide de la fonction de creation de bareme
+
+
+Reste a faire pour la Partie I :
+
+-Les différents tris avec qsort et leurs temps d'excutions
+
+-Améliorer les commentaires de chaque fonctions
+
+-Finaliser le programme de test de la partie I

@@ -25,3 +25,8 @@ void affichageRechercheString(char **tabMots, int nbMots, char string[]);
 void ajoutMotFindeFichier(char nom[], char string[]);
 void ajoutMotLigneIFichier(char nom[],char string[],int pos,int nbMots);
 void freeTabMotsDynamique(char **tabMots, int nbMots);
+void triLexicographiqueABulles(char **tabMots, int nbMots, double *cpu_time_used);
+void ecritureTabMotsFichier(char nom[], char **tabMots, int nbMots);
+void creationBareme(char nom[], int bareme[25]);
+void calculPoints(char **tabMots, int nbMots, int *scoreMax, int *nbScoreMax);
+void calculPointsBareme(char nomBareme[], char **tabMots, int nbMots, int *scoreMax, int *nbScoreMax);

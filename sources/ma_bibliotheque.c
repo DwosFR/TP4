@@ -15,19 +15,29 @@ Fichier C : Repertoire de fonctions sans rapport direct avec le probleme
 #include <stdarg.h>
 #include "..\headers\tab_mots_dynamique.h"
 
+//Fonction testant les différentes fonctions de tab_mots_dynamique.c (Partie I du TP)
 void testPartieI()
 {
     int nb = nbMots(".\\files\\liste_dev.txt");
-    //printf("%d\n", nb);
-
+    double cpu_time_used = 0;
+    int scoreMax;
+    int nbScoreMax;
+ 
     char **tabMots = creationTabMotsDynamique(".\\files\\liste_dev.txt", nb);
-    //affichageTabMotsDynamique(tabMots,i);
-    //affichageRechercheString(tabMots, nb, "TEND");
-    //ajoutMotFindeFichier(".\\files\\liste_dev_perso.txt","TEST");
-    ajoutMotLigneIFichier(".\\files\\liste_dev.txt","CHOUCROUTE",3,nb);
+    triLexicographiqueABulles(tabMots,nb,&cpu_time_used);
+    affichageTabMotsDynamique(tabMots,nb);
+    printf("Temps du CPU pour effectuer le tri : %lf secondes\n",cpu_time_used);
+    affichageRechercheString(tabMots, nb, "TEND");
+    ajoutMotFindeFichier(".\\files\\liste_dev_perso.txt","TEST");
+    ajoutMotLigneIFichier(".\\files\\liste_dev.txt","CHOUCROUTE",15,nb);
+    ecritureTabMotsFichier(".\\files\\liste_dev_triée.txt",tabMots,nb);
+    calculPointsBareme(".\\files\\lettres_pts.txt", tabMots, nb, &scoreMax, &nbScoreMax);
+    printf("Le score maximum pour le dictionnaire est de %d points\n",scoreMax);
+    printf("Le nombre de mots permettant d'obtenir ce score est %d mots\n",nbScoreMax);
     freeTabMotsDynamique(tabMots,nb);
 }
 
+//Fonction affichant un menu permettant de lancer les différentes fonctions tests du programme
 void menu()
 {
     char menu1;

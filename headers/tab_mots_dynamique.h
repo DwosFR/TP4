@@ -30,3 +30,7 @@ void ecritureTabMotsFichier(char nom[], char **tabMots, int nbMots);
 void creationBareme(char nom[], int bareme[25]);
 void calculPoints(char **tabMots, int nbMots, int *scoreMax, int *nbScoreMax);
 void calculPointsBareme(char nomBareme[], char **tabMots, int nbMots, int *scoreMax, int *nbScoreMax);
+int compareLongueur(const void *a, const void *b);
+int compareLexicographique(const void *a, const void *b);
+void triQsort(char **tabMots, int nbMots, double *cpu_time_used, int (*compare)(const void *,const void *));
+void testPartieI();

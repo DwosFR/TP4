@@ -70,3 +70,19 @@ Reste a faire pour la Partie I :
 -Améliorer les commentaires de chaque fonctions
 
 -Finaliser le programme de test de la partie I
+
+
+09/12/2019:
+
+-Ajout des fonctions compareLexicographique et compraLongueur pouvant être utilisée avec qsort
+
+-Ajout d'une fonction de tri avec qsort prenant en paramètre une fonction de comparaison générique int (*compare)(const void *,const void *)
+
+-Refonte du sous-programme de test de la partie I avec un menu afin de tester chaque fonctionalité séparement
+
+-Il ne reste donc que les commentaires a faire pour la partie I
+
+
+
+
+SEANCE 2 : 10/12/2019

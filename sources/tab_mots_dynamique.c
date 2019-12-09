@@ -25,7 +25,7 @@ int nbMots(char nom[])
     int i = 0;
     char buffer[256];
 
-    while (fgets(buffer, 256, f) != NULL)
+    while (fgets(buffer,256, f) != NULL)
     {
         i++;
     }
@@ -74,14 +74,19 @@ void affichageTabMotsDynamique(char **tabMots, int nbMots)
 //Fonction affichant tout les mots du tableau de mots contenant la chaîne string[] passé en en entrée
 void affichageRechercheString(char **tabMots, int nbMots, char string[])
 {
+    bool trouve = false;
     printf("Voici les mots contenant : %s\n\n",string);
     int i;
     for (i = 0; i < nbMots; i++)
     {
         if (strstr(tabMots[i], string) != NULL)
         {
+            trouve = true;
             printf("Mot n°%d : %s\n", i + 1, tabMots[i]);
         }
+    }
+    if(trouve == false){
+        printf("Aucun mots ne contient : %s\n\n",string);
     }
 }
 
@@ -124,7 +129,7 @@ void ajoutMotLigneIFichier(char nom[],char string[],int pos,int nbMots){
     rename(".\\files\\test.txt",nom);
 }
 
-//6(a)
+//6(a)(c)
 //Test pour savoir si mot 1 est superieur ou non a un mot2 dans l'odre lexicographique
 //Renvoit vrai si le mot 1 est situé avant dans l'ordre lexicographique
 //Renvoit faux si le mot 2 est situé avant dans l'odre lexcicographique
@@ -174,8 +179,59 @@ void triLexicographiqueABulles(char **tabMots, int nbMots,double *cpu_time_used)
     *cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
 }
 
-//6(b)
-//A FAIRE
+//6(b)(c)
+int compareLexicographique(const void *a,const void *b){
+    unsigned int i, max;
+    char *mot1 = (*(char **)a);
+    char *mot2 = (*(char **)b);
+
+    if (strlen((*(char **)a)) >= strlen((*(char **)b)))
+    {
+        max = strlen((*(char **)b));
+    }
+    else
+    {
+        max = strlen((*(char **)a));
+    }
+
+    for (i = 0; i < max; i++)
+    {
+        if (mot1[i] > mot2[i])
+        {
+                return 1;
+        }
+        else if (mot1[i] < mot2[i])
+        {
+            return -1;
+        }
+    }
+    if (max == strlen((*(char **)a)))
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+int compareLongueur(const void *a,const void *b){
+    if((strlen((*(char **)a)) - strlen((*(char **)b))) != 0){
+        return (strlen((*(char **)a)) - strlen((*(char **)b)));
+    }else
+    {
+        return compareLexicographique(a,b);
+    }
+    
+}
+void triQsort(char **tabMots,int nbMots, double *cpu_time_used,int (*compare)(const void *,const void *)){
+    clock_t start, end;
+    *cpu_time_used = 0;
+    start = clock();
+    qsort(tabMots,nbMots,sizeof(char *),compare);
+    end = clock();
+    *cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+}
 
 //7
 //Fonction d'ecriture d'un tableau de mots dans un Fichier (en supposant que le tableau soit trié préalablement)
@@ -404,3 +460,137 @@ void freeTabMotsDynamique(char **tabMots, int nbMots)
     tabMots = NULL;
 }
 
+//Fonction testant les différentes fonctions de tab_mots_dynamique.c (Partie I du TP)
+void testPartieI()
+{
+    char menu1;
+    char menu2;
+    char **tabMots;
+    int nb = 0; 
+    int temp;
+    double cpu_time_used = 0;
+    int scoreMax = 0;
+    int nbScoreMax = 0;
+    char string[256];
+
+    printf("Test de la partie I :\n\n");
+    do
+    {
+        printf("=================================================\n\n");
+        printf("< 1 > Creation du tableau (liste_dev.txt)\n");
+        printf("< 2 > Affichage du tableau (liste_dev.txt)\n");
+        printf("< 3 > Tri lexicographique à bulles\n");
+        printf("< 4 > Tri lexicographique qsort\n");
+        printf("< 5 > Tri par longueur qsort\n");
+        printf("< 6 > Recherche des mots contenant une chaîne de caractères\n");
+        printf("< 7 > Ajout d'un mot en fin de fichier (liste_dev.txt)\n");
+        printf("< 8 > Ajout d'un mot à une ligne i du fichier (liste_dev.txt)\n");
+        printf("< 9 > ...\n");
+        printf("< 0 > Quitter le programme\n\n");
+        printf("=================================================\n\n");
+        printf("votre choix: \t");
+        scanf("%s", &menu1);
+        printf("\n");
+        switch (menu1)
+        {
+        case '0':
+            printf("fin du programme Test Partie I\n");
+            break;
+        case '1':
+            nb = nbMots(".\\files\\liste_dev.txt");
+            tabMots = creationTabMotsDynamique(".\\files\\liste_dev.txt", nb);
+            break;
+        case '2':
+            printf("Combien de valeurs du tableau voulez vous afficher?(0 pour tout afficher)\n");
+            scanf("%d", &temp);
+            if(temp != 0)
+                affichageTabMotsDynamique(tabMots, temp);
+            if (temp == 0)
+                affichageTabMotsDynamique(tabMots,nb);
+            break;
+        case '3':
+            triLexicographiqueABulles(tabMots, nb, &cpu_time_used);
+            printf("Temps du CPU pour effectuer le tri : %lf secondes\n\n", cpu_time_used);
+            break;
+        case '4':
+            triQsort(tabMots, nb, &cpu_time_used, compareLexicographique);
+            printf("Temps du CPU pour effectuer le tri : %lf secondes\n\n", cpu_time_used);
+            break;
+        case '5':
+            triQsort(tabMots, nb, &cpu_time_used, compareLongueur);
+            printf("Temps du CPU pour effectuer le tri : %lf secondes\n\n", cpu_time_used);
+            break;
+        case '6':
+            printf("Que voulez vous rechercher?\n");
+            scanf("%s",string);
+            affichageRechercheString(tabMots, nb,string);
+            break;
+        case '7':
+            printf("Que voulez vous ajouter?\n");
+            scanf("%s", string);
+            ajoutMotFindeFichier(".\\files\\liste_dev.txt",string);
+            break;
+        case '8':
+            printf("Que voulez vous ajouter?\n");
+            scanf("%s", string);
+            printf("A quelle ligne?\n");
+            scanf("%d",&temp);
+            ajoutMotLigneIFichier(".\\files\\liste_dev.txt",string,temp,nb);
+            break;
+        case '9':
+            do
+            {
+                printf("=================================================\n\n");
+                printf("< 1 > Ecriture du tableau dans un nouveau fichier\n");
+                printf("< 2 > Calcul du meilleur score avec le bareme du polycopié\n");
+                printf("< 3 > Calcul du meilleur score avec le bareme de lettres_pts.txt\n");
+                printf("< 4 > Triage puis ecriture du tableau dans liste_dev_triée.txt\n");
+                printf("< 5 > Afficher le nombre de mots\n");
+                printf("< 6 > Liberation du tableau\n");
+                printf("< 0 > Retour au menu precédent\n");
+                printf("=================================================\n\n");
+                printf("votre choix: \t");
+                scanf("%s", &menu2);
+                printf("\n");
+                switch (menu2)
+                {
+                case '0':
+                    printf("Retour au menu precedent\n");
+                    break;
+                case '1':
+                    printf("Quelle le nom et/ou chemin du nouveau fichier?\n");
+                    scanf("%s", string);
+                    ecritureTabMotsFichier(string, tabMots, nb);
+                    break;
+                case '2':
+                    calculPoints(tabMots,nb,&scoreMax,&nbScoreMax);
+                    printf("Le score maximum pour le dictionnaire est de %d points\n", scoreMax);
+                    printf("Le nombre de mots permettant d'obtenir ce score est %d mots\n", nbScoreMax);
+                    break;
+                case '3' :
+                    calculPointsBareme(".\\files\\lettres_pts.txt", tabMots, nb, &scoreMax, &nbScoreMax);
+                    printf("Le score maximum pour le dictionnaire est de %d points\n", scoreMax);
+                    printf("Le nombre de mots permettant d'obtenir ce score est %d mots\n", nbScoreMax);
+                    break;
+                case '4' :
+                    triQsort(tabMots, nb, &cpu_time_used, compareLexicographique);
+                    ecritureTabMotsFichier(".\\files\\liste_dev_triée.txt", tabMots, nb);
+                    break;
+                case '5' :
+                    printf("Le nombre de mots dans le tableau est : %d\n",nb);
+                    break;
+                case '6' :
+                    freeTabMotsDynamique(tabMots,nb);
+                    break;
+                default:
+                    printf("erreur: commande inconnue\n");
+                    break;
+                }    
+            } while(menu2 != '0');
+            break;
+        default:
+            printf("erreur: commande inconnue\n");
+            break;
+        }
+    } while (menu1 != '0');
+}

@@ -14,6 +14,7 @@ Fichier C : Repertoire de fonctions sans rapport direct avec le probleme
 #include <assert.h>
 #include <stdarg.h>
 #include "..\headers\tab_mots_dynamique.h"
+#include "..\headers\listes_chainees.h"
 
 //Fonction affichant un menu permettant de lancer les différentes fonctions tests du programme
 void menu()
@@ -24,10 +25,11 @@ void menu()
     {
         printf("=================================================\n\n");
         printf("< 1 > Programme Test Exo 1\n");
+        printf("< 2 > Programme Test Exo 2\n");
         printf("< 0 > Quitter le programme\n\n");
         printf("=================================================\n\n");
         printf("votre choix: \t");
-        scanf("%s", &menu1);
+        while ((menu1 = getchar()) == 10);
         printf("\n");
         switch (menu1)
         {
@@ -36,6 +38,9 @@ void menu()
             break;
         case '1':
             testPartieI();
+            break;
+        case '2':
+            testPartieII();
             break;
         default:
             printf("erreur: commande inconnue\n");

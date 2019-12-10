@@ -128,6 +128,9 @@ void ajoutMotLigneIFichier(char nom[],char string[],int pos,int nbMots){
     rename(".\\files\\test.txt",nom);
 }
 
+//5
+
+
 //6(a)(c)
 //Test pour savoir si mot 1 est superieur ou non a un mot2 dans l'odre lexicographique
 //Renvoit vrai si le mot 1 est situé avant dans l'ordre lexicographique
@@ -545,7 +548,8 @@ void testPartieI()
                 printf("< 3 > Calcul du meilleur score avec le bareme de lettres_pts.txt\n");
                 printf("< 4 > Triage puis ecriture du tableau dans liste_dev_triée.txt\n");
                 printf("< 5 > Afficher le nombre de mots\n");
-                printf("< 6 > Liberation du tableau\n");
+                printf("< 6 > Ajout d'un mot dans le tableau à l'indice i");
+                printf("< 7 > Liberation du tableau\n");
                 printf("< 0 > Retour au menu precédent\n");
                 printf("=================================================\n\n");
                 printf("votre choix: \t");
@@ -579,6 +583,8 @@ void testPartieI()
                     printf("Le nombre de mots dans le tableau est : %d\n",nb);
                     break;
                 case '6' :
+                    break;
+                case '7' :
                     freeTabMotsDynamique(tabMots,nb);
                     break;
                 default:

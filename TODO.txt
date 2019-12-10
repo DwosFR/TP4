@@ -87,6 +87,11 @@ Reste a faire pour la Partie I :
 
 SEANCE 2 : 10/12/2019
 
-1H passé a reparer le menu : lecture des variables menu1 et menu2 avec getchar au lieu de scanf afin d'éviter les erreurs d'ecrasement mémoires des autres variables
+2H passé a reparer le menu : lecture des variables menu1 et menu2 avec getchar au lieu de scanf afin d'éviter les erreurs d'ecrasement mémoires des autres variables
+
+-Ajout des fichiers listes_chainees.c et listes_chainees.h pour gerer les fonctions de la Partie II
+
+-Modification de la commande de compilation
+
 
 

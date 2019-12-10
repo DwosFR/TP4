@@ -129,7 +129,19 @@ void ajoutMotLigneIFichier(char nom[],char string[],int pos,int nbMots){
 }
 
 //5
-
+char **ajoutMotTabIndiceI(char **tabMots, int *nbMots,int indice, char string[]){
+int nb = *nbMots;
+tabMots = (char **)realloc(tabMots, nb+1 * sizeof(char *));
+while(nb > indice){
+    if(nb != 0){
+        tabMots[nb] = tabMots[nb-1];
+    }
+    nb--;
+}
+strcpy(tabMots[nb], string);
+*nbMots = *nbMots + 1;
+return tabMots;
+}
 
 //6(a)(c)
 //Test pour savoir si mot 1 est superieur ou non a un mot2 dans l'odre lexicographique
@@ -548,7 +560,7 @@ void testPartieI()
                 printf("< 3 > Calcul du meilleur score avec le bareme de lettres_pts.txt\n");
                 printf("< 4 > Triage puis ecriture du tableau dans liste_dev_triée.txt\n");
                 printf("< 5 > Afficher le nombre de mots\n");
-                printf("< 6 > Ajout d'un mot dans le tableau à l'indice i");
+                printf("< 6 > Ajout d'un mot dans le tableau à l'indice i\n");
                 printf("< 7 > Liberation du tableau\n");
                 printf("< 0 > Retour au menu precédent\n");
                 printf("=================================================\n\n");
@@ -583,6 +595,11 @@ void testPartieI()
                     printf("Le nombre de mots dans le tableau est : %d\n",nb);
                     break;
                 case '6' :
+                    printf("Que voulez vous ajouter?\n");
+                    scanf("%s", string);
+                    printf("A quelle indice?\n");
+                    scanf("%d", &temp);
+                    tabMots = ajoutMotTabIndiceI(tabMots,&nb,4,string);
                     break;
                 case '7' :
                     freeTabMotsDynamique(tabMots,nb);

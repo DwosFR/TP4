@@ -24,8 +24,7 @@ int nbMots(char nom[])
     assert(f = fopen(nom, "r"));
     int i = 0;
     char buffer[256];
-
-    while (fgets(buffer,256, f) != NULL)
+    while (fgets(buffer,256,f) != NULL)
     {
         i++;
     }
@@ -489,7 +488,7 @@ void testPartieI()
         printf("< 0 > Quitter le programme\n\n");
         printf("=================================================\n\n");
         printf("votre choix: \t");
-        scanf("%s", &menu1);
+        while((menu1=getchar()) == 10);
         printf("\n");
         switch (menu1)
         {
@@ -550,7 +549,7 @@ void testPartieI()
                 printf("< 0 > Retour au menu precédent\n");
                 printf("=================================================\n\n");
                 printf("votre choix: \t");
-                scanf("%s", &menu2);
+                while ((menu2 = getchar()) == 10);
                 printf("\n");
                 switch (menu2)
                 {
@@ -583,13 +582,13 @@ void testPartieI()
                     freeTabMotsDynamique(tabMots,nb);
                     break;
                 default:
-                    printf("erreur: commande inconnue\n");
+                    printf("erreur: commande inconnue (%d)\n", menu2);
                     break;
                 }    
             } while(menu2 != '0');
             break;
         default:
-            printf("erreur: commande inconnue\n");
+            printf("erreur: commande inconnue (%d)\n", menu1);
             break;
         }
     } while (menu1 != '0');

@@ -94,4 +94,9 @@ SEANCE 2 : 10/12/2019
 -Modification de la commande de compilation
 
 
+15/12/2019:
+
+-Ajout des fonctions de création et d'affichage d'un tableau de listes chainées chaque listes contenant des cellules contenant un mot alloué dynamiquement.
+
+
 

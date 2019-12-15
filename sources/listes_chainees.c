@@ -15,7 +15,7 @@ Fichier C : Fichier contenant les fonctions en rapport avec la Partie II
 #include <string.h>
 #include <assert.h>
 #include <stdarg.h>
-#include "..\headers\tab_mots_dynamique.h"
+#include "../headers/tab_mots_dynamique.h"
 
 //Fonction testant les différentes fonctions de listes_chainees.c (Partie II du TP)
 void testPartieII()
@@ -43,8 +43,8 @@ void testPartieII()
             printf("fin du programme Test Partie I\n");
             break;
         case '1':
-            nb = nbMots(".\\files\\liste_dev.txt");
-            tabMots = creationTabMotsDynamique(".\\files\\liste_dev.txt", nb);
+            nb = nbMots("./files/liste_dev.txt");
+            tabMots = creationTabMotsDynamique("./files/liste_dev.txt", nb);
             break;
         case '2':
             printf("Combien de valeurs du tableau voulez vous afficher?(0 pour tout afficher)\n");

@@ -13,8 +13,8 @@ Fichier C : Repertoire de fonctions sans rapport direct avec le probleme
 #include <string.h>
 #include <assert.h>
 #include <stdarg.h>
-#include "..\headers\tab_mots_dynamique.h"
-#include "..\headers\listes_chainees.h"
+#include "../headers/tab_mots_dynamique.h"
+#include "../headers/listes_chainees.h"
 
 //Fonction affichant un menu permettant de lancer les différentes fonctions tests du programme
 void menu()

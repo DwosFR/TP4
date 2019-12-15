@@ -111,7 +111,7 @@ void ajoutMotLigneIFichier(char nom[],char string[],int pos,int nbMots){
     char buffer[256];
 
     assert(f1 = fopen(nom,"r"));
-    assert(f2 = fopen(".\\files\\test.txt", "w"));
+    assert(f2 = fopen("./files/test.txt", "w"));
 
     for(i = 0;i<pos-1;i++){
         fgets(buffer,256,f1);
@@ -125,7 +125,7 @@ void ajoutMotLigneIFichier(char nom[],char string[],int pos,int nbMots){
     fclose(f1);
     fclose(f2);
     remove(nom);
-    rename(".\\files\\test.txt",nom);
+    rename("./files/test.txt",nom);
 }
 
 //5
@@ -511,8 +511,8 @@ void testPartieI()
             printf("fin du programme Test Partie I\n");
             break;
         case '1':
-            nb = nbMots(".\\files\\liste_dev.txt");
-            tabMots = creationTabMotsDynamique(".\\files\\liste_dev.txt", nb);
+            nb = nbMots("./files/liste_dev.txt");
+            tabMots = creationTabMotsDynamique("./files/liste_dev.txt", nb);
             break;
         case '2':
             printf("Combien de valeurs du tableau voulez vous afficher?(0 pour tout afficher)\n");
@@ -542,14 +542,14 @@ void testPartieI()
         case '7':
             printf("Que voulez vous ajouter?\n");
             scanf("%s", string);
-            ajoutMotFindeFichier(".\\files\\liste_dev.txt",string);
+            ajoutMotFindeFichier("./files/liste_dev.txt",string);
             break;
         case '8':
             printf("Que voulez vous ajouter?\n");
             scanf("%s", string);
             printf("A quelle ligne?\n");
             scanf("%d",&temp);
-            ajoutMotLigneIFichier(".\\files\\liste_dev.txt",string,temp,nb);
+            ajoutMotLigneIFichier("./files/liste_dev.txt",string,temp,nb);
             break;
         case '9':
             do
@@ -583,13 +583,13 @@ void testPartieI()
                     printf("Le nombre de mots permettant d'obtenir ce score est %d mots\n", nbScoreMax);
                     break;
                 case '3' :
-                    calculPointsBareme(".\\files\\lettres_pts.txt", tabMots, nb, &scoreMax, &nbScoreMax);
+                    calculPointsBareme("./files/lettres_pts.txt", tabMots, nb, &scoreMax, &nbScoreMax);
                     printf("Le score maximum pour le dictionnaire est de %d points\n", scoreMax);
                     printf("Le nombre de mots permettant d'obtenir ce score est %d mots\n", nbScoreMax);
                     break;
                 case '4' :
                     triQsort(tabMots, nb, &cpu_time_used, compareLexicographique);
-                    ecritureTabMotsFichier(".\\files\\liste_dev_triée.txt", tabMots, nb);
+                    ecritureTabMotsFichier("./files/liste_dev_triée.txt", tabMots, nb);
                     break;
                 case '5' :
                     printf("Le nombre de mots dans le tableau est : %d\n",nb);

@@ -91,13 +91,10 @@ tabListes initialisationTabListes()
 
 void creationTabListes(tabListes tab, char **tabMots, int nb)
 {
-    double cpu;
     int i;
-    triQsort(tabMots, nb, &cpu, compareLexicographique);
     Liste_Cellule_Chaine nouveau;
     for (i = nb - 1; i >= 0; i--)
     {
-        printf("%s\n",tabMots[i]);
         if (tabMots[i][0] == 'A')
         {
             nouveau = (Liste_Cellule_Chaine)malloc(sizeof(Cellule_Chaine));
@@ -378,16 +375,75 @@ void afficherTabListes(tabListes tab)
     }
 }
 
+bool rechercheMotTabMots(char **tabMots, int nb, char mot[], int *indice, double *cpu_time_used)
+{
+    int i = 0;
+    clock_t start, end;
+    *cpu_time_used = 0;
+    start = clock();
+    for( i = 0;i<nb;i++){
+        if(strcmp(tabMots[i],mot) == 0){
+            *indice = i;
+            end = clock();
+            *cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+            return true;
+        }
+    }
+    end = clock();
+    *cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+    return false;
+}
+
+bool rechercheMotTabListes(tabListes tab, char mot[], int *indice, double *cpu_time_used)
+{
+    bool resultat = false;
+    Liste_Cellule_Chaine courant;
+    int i;
+    int compteur = 1;
+    clock_t start, end;
+    *cpu_time_used = 0;
+    start = clock();
+    for (i = 0; i < 26; i++)
+    {
+        courant = tab[i];
+        while (courant != NULL && resultat == false)
+        {
+            if (strcmp(courant->mot, mot) == 0){
+                resultat = true;
+                *indice = compteur-1;
+                i = 27;
+            }
+            compteur++;
+            courant = courant->suivant;
+        }
+    }
+    end = clock();
+    *cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+    return resultat;
+}
+
 void test()
 {
     char **tabMots;
-    int nb;
+    double cpu_time_used;
+    char mot[10000] = "REPENDIS\n";
+    int nb,indice;
     tabListes tab;
     tab = initialisationTabListes();
     nb = nbMots(".\\files\\liste_dev.txt");
     tabMots = creationTabMotsDynamique(".\\files\\liste_dev.txt", nb);
+    triQsort(tabMots, nb, &cpu_time_used, compareLexicographique);
     creationTabListes(tab, tabMots, nb);
-    afficherTabListes(tab);
+    //afficherTabListes(tab);
+    if(rechercheMotTabMots(tabMots,nb,mot,&indice,&cpu_time_used)){
+        printf("Temps du CPU pour effectuer la recherche avec le TABLEAU DE MOTS: %lf secondes\n\n", cpu_time_used);
+        printf("Le mot %s est present dans le tableau de mots à l'indice %d\n\n",mot,indice);
+    }
+    if (rechercheMotTabListes(tab, mot, &indice,&cpu_time_used))
+    {
+        printf("Temps du CPU pour effectuer la recherche avec le TABLEAU DE LISTES: %lf secondes\n\n", cpu_time_used);
+        printf("Le mot %s est present dans le tableau de listes,il s'agit du mot n°%d\n\n", mot, indice);
+    }
 }
 
 //Fonction testant les différentes fonctions de listes_chainees.c (Partie II du TP)

@@ -24,8 +24,9 @@ void menu()
     do
     {
         printf("=================================================\n\n");
-        printf("< 1 > Programme Test Exo 1\n");
-        printf("< 2 > Programme Test Exo 2\n");
+        printf("< 1 > Partie I\n");
+        printf("< 2 > Partie II\n");
+        printf("< 3 > Partie III\n");
         printf("< 0 > Quitter le programme\n\n");
         printf("=================================================\n\n");
         printf("votre choix: \t");

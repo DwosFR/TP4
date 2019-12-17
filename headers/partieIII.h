@@ -2,7 +2,7 @@
 Auteur : Valynseele Alexis
 Date :  26/11/2019 - Seance 1
 Titre : TP 4 - DA (9h)
-Fichier C : Main
+Fichier .h : prototype des fonctions de partieIII.c
 
 **************************************************************/
 
@@ -15,11 +15,7 @@ Fichier C : Main
 #include <string.h>
 #include <assert.h>
 #include <stdarg.h>
-#include "..\\headers\\ma_bibliotheque.h"
 
-//Fonction principale du programme,permet de lancer le menu
-int main()
-{
-    menu();
-    return 0;
-}
+//Prototypes
+
+void testPartieIII();

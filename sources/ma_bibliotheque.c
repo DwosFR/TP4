@@ -13,8 +13,9 @@ Fichier C : Repertoire de fonctions sans rapport direct avec le probleme
 #include <string.h>
 #include <assert.h>
 #include <stdarg.h>
-#include "..\headers\tab_mots_dynamique.h"
-#include "..\headers\listes_chainees.h"
+#include "..\\headers\\tab_mots_dynamique.h"
+#include "..\\headers\\listes_chainees.h"
+#include "..\\headers\\partieIII.h"
 
 //Fonction affichant un menu permettant de lancer les différentes fonctions tests du programme
 void menu()
@@ -26,6 +27,7 @@ void menu()
         printf("=================================================\n\n");
         printf("< 1 > Partie I\n");
         printf("< 2 > Partie II\n");
+        printf("< 3 > Partie III\n");
         printf("< 0 > Quitter le programme\n\n");
         printf("=================================================\n\n");
         printf("votre choix: \t");
@@ -41,6 +43,9 @@ void menu()
             break;
         case '2':
             testPartieII();
+            break;
+        case '3':
+            testPartieIII();
             break;
         default:
             printf("erreur: commande inconnue\n");

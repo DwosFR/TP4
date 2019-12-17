@@ -513,6 +513,7 @@ void testPartieI()
         case '1':
             nb = nbMots("./files/liste_dev.txt");
             tabMots = creationTabMotsDynamique("./files/liste_dev.txt", nb);
+            printf("Tableau crée\n");
             break;
         case '2':
             printf("Combien de valeurs du tableau voulez vous afficher?(0 pour tout afficher)\n");
@@ -603,6 +604,7 @@ void testPartieI()
                     break;
                 case '7' :
                     freeTabMotsDynamique(tabMots,nb);
+                    printf("Memoire liberée\n");
                     break;
                 default:
                     printf("erreur: commande inconnue (%d)\n", menu2);

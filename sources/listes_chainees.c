@@ -88,6 +88,7 @@ tabListes initialisationTabListes()
     return tab;
 }
 
+//2)
 void creationTabListes(tabListes tab, char **tabMots, int nb)
 {
     int i;
@@ -362,6 +363,7 @@ void afficherTabListes(tabListes tab)
     Liste_Cellule_Chaine courant;
     int i;
     int compteur = 1;
+
     for (i = 0; i < 26; i++)
     {
         courant = tab[i];
@@ -374,11 +376,13 @@ void afficherTabListes(tabListes tab)
     }
 }
 
+//3)
 bool rechercheMotTabMots(char **tabMots, int nb, char mot[], int *indice, double *cpu_time_used)
 {
     int i = 0;
     clock_t start, end;
     *cpu_time_used = 0;
+
     start = clock();
     for( i = 0;i<nb;i++){
         if(strcmp(tabMots[i],mot) == 0){
@@ -399,6 +403,7 @@ bool rechercheMotTabListes(tabListes tab, char mot[], int *indice, double *cpu_t
     Liste_Cellule_Chaine courant;
     int i;
     int compteur = 1;
+
     clock_t start, end;
     *cpu_time_used = 0;
     start = clock();
@@ -421,55 +426,131 @@ bool rechercheMotTabListes(tabListes tab, char mot[], int *indice, double *cpu_t
     return resultat;
 }
 
-void test()
-{
-    char **tabMots;
-    double cpu_time_used;
-    char mot[10000] = "REPENDIS\n";
-    int nb,indice;
-    tabListes tab;
-    tab = initialisationTabListes();
-    nb = nbMots("./files//liste_dev.txt");
-    tabMots = creationTabMotsDynamique("./files/liste_dev.txt", nb);
-    triQsort(tabMots, nb, &cpu_time_used, compareLexicographique);
-    creationTabListes(tab, tabMots, nb);
-    //afficherTabListes(tab);
-    if(rechercheMotTabMots(tabMots,nb,mot,&indice,&cpu_time_used)){
-        printf("Temps du CPU pour effectuer la recherche avec le TABLEAU DE MOTS: %lf secondes\n\n", cpu_time_used);
-        printf("Le mot %s est present dans le tableau de mots à l'indice %d\n\n",mot,indice);
+//4)
+void affichageRechercheStringTabListes(tabListes tab,char string[]){
+
+    bool trouve = false; int i;
+    int compteur = 0;
+    Liste_Cellule_Chaine courant;
+
+    printf("Voici les mots contenant : %s\n\n",string);
+    for(i = 0; i <26 ; i++){
+        courant = tab[i];
+        while (courant != NULL){
+            if(strstr(courant->mot,string) != NULL){
+                trouve = true;
+                printf("Mot n°%d : %s\n", compteur + 1,courant->mot);
+            }
+            compteur++;
+            courant = courant->suivant;
+        }
     }
-    if (rechercheMotTabListes(tab, mot, &indice,&cpu_time_used))
-    {
-        printf("Temps du CPU pour effectuer la recherche avec le TABLEAU DE LISTES: %lf secondes\n\n", cpu_time_used);
-        printf("Le mot %s est present dans le tableau de listes,il s'agit du mot n°%d\n\n", mot, indice);
+
+    if(trouve == false){
+        printf("Aucun mots ne contient : %s\n\n",string);
     }
 }
+
+//5)
+void freeTabListes(tabListes tab)
+{
+    int i;
+    Liste_Cellule_Chaine courant;
+    Liste_Cellule_Chaine precedent;
+    for(i = 0; i <26 ; i++){
+        courant = tab[i];
+        while (courant != NULL){
+
+            precedent = courant;
+            courant = courant->suivant;
+
+            free(precedent->mot);
+            precedent->suivant = NULL;
+            free(precedent);
+            precedent = NULL;
+        }
+        tab[i] = NULL;
+    }
+    free(tab);
+    tab = NULL;
+}
+
 
 //Fonction testant les différentes fonctions de listes_chainees.c (Partie II du TP)
 void testPartieII()
 {
     char menu1;
+    char **tabMots;
+    double cpu_time_used;
+    int nb,indice;
+    tabListes tab;
+    char string[256];
 
-    printf("Test de la partie I :\n\n");
+    printf("Test de la partie II :\n\n");
     do
     {
         printf("=================================================\n\n");
-        printf("< 1 > test\n");
+        printf("< 1 > Creation du tableau de listes \n");
+        printf("< 2 > Affichage du tableau de listes \n");
+        printf("< 3 > Recherche Mot via Tab Dynamique\n");
+        printf("< 4 > Recherche Mot via Tab de Listes Chainees\n");
+        printf("< 5 > Recherche des mots contenant une chaîne de caractères\n");
+        printf("< 6 > Liberation de la memoire\n");
         printf("< 0 > Quitter le programme\n\n");
         printf("=================================================\n\n");
         printf("votre choix: \t");
-        while ((menu1 = getchar()) == 10)
-            ;
+        while((menu1=getchar()) == 10);
         printf("\n");
         switch (menu1)
         {
         case '0':
-            printf("fin du programme Test Partie I\n");
+            printf("fin du programme Test Partie II\n");
             break;
         case '1':
-            test();
+            tab = initialisationTabListes();
+            nb = nbMots("./files//liste_dev.txt");
+            tabMots = creationTabMotsDynamique("./files/liste_dev.txt", nb);
+            triQsort(tabMots, nb, &cpu_time_used, compareLexicographique);
+            creationTabListes(tab, tabMots, nb);
+            printf("Tableau crée\n");
             break;
         case '2':
+            afficherTabListes(tab);
+            break;
+        case '3':
+                printf("Que voulez vous rechercher?\n");
+                scanf("%s",string);
+                strcat(string,"\n");
+                if(rechercheMotTabMots(tabMots,nb,string,&indice,&cpu_time_used)){
+                printf("Temps du CPU pour effectuer la recherche avec le TABLEAU DE MOTS: %lf secondes\n\n", cpu_time_used);
+                printf("Le mot %s est present dans le tableau de mots à l'indice %d\n\n",string,indice);
+                }else
+                {
+                    printf("Le mot %s n'est pas present dans le tableau de mot\n",string);
+                }
+            break;         
+        case '4':
+                printf("Que voulez vous rechercher?\n");
+                scanf("%s",string);
+                strcat(string,"\n");
+                if (rechercheMotTabListes(tab, string, &indice,&cpu_time_used))
+                {
+                printf("Temps du CPU pour effectuer la recherche avec le TABLEAU DE LISTES: %lf secondes\n\n", cpu_time_used);
+                printf("Le mot %s est present dans le tableau de listes,il s'agit du mot n°%d\n\n", string, indice);
+                }else
+                {
+                    printf("Le mot %s n'est pas present dans le tableau de mot\n",string);
+                }
+            break;
+        case '5':
+            printf("Que voulez vous rechercher?\n");
+            scanf("%s",string);
+            affichageRechercheStringTabListes(tab,string);
+            break;
+        case '6':
+            freeTabListes(tab);
+            freeTabMotsDynamique(tabMots,nb);
+            printf("Memoire liberée\n");
             break;
         default:
             printf("erreur: commande inconnue (%d)\n", menu1);

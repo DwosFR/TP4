@@ -15,6 +15,9 @@ Fichier C : Main
 #include <string.h>
 #include <assert.h>
 #include <stdarg.h>
+#include "../headers/tab_mots_dynamique.h"
+#include "../headers/listes_chainees.h"
+#include "../headers/partieIII.h"
 #include "../headers/ma_bibliotheque.h"
 
 //Fonction principale du programme,permet de lancer le menu

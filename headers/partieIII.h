@@ -19,3 +19,4 @@ Fichier .h : prototype des fonctions de partieIII.c
 //Prototypes
 
 void testPartieIII();
+char *strConstruction(char mot[],...);

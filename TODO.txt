@@ -65,11 +65,11 @@ Il s'agit du même code que celui utilisé dans la fonction de calcul de points,
 
 Reste a faire pour la Partie I :
 
--Les différents tris avec qsort et leurs temps d'excutions
+-Les différents tris avec qsort et leurs temps d'excutions - DONE
 
 -Améliorer les commentaires de chaque fonctions
 
--Finaliser le programme de test de la partie I
+-Finaliser le programme de test de la partie I - DONE
 
 
 09/12/2019:
@@ -128,7 +128,7 @@ Reste à faire :
 
 -Commenter la partie III
 
--Changer les programmes Test Partie I/II/III pour utiliser liste_eval.txt au lieu de liste_dev.txt
+-Changer les programmes Test Partie I/II/III pour utiliser liste_eval.txt au lieu de liste_dev.txt - DONE
 
 
 SEANCE 3 : 18/12/2019 :
@@ -137,3 +137,8 @@ SEANCE 3 : 18/12/2019 :
 
 -Changement de liste_dev vers liste_eval dans les appels des sous-programmes dans les fonctions de test
 
+-Tout les fonctionalités sont implémentées sauf le sous-programme partie I 5) (13h45min)
+
+-Le sous-pogramme partie I 5) fonctionne (14h30min)
+
+-Le TP est entièrement fini, tout les fonctionalité sont implémentées.Il ne reste qu'a commenter le code

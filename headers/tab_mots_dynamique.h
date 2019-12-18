@@ -33,4 +33,5 @@ void calculPointsBareme(char nomBareme[], char **tabMots, int nbMots, int *score
 int compareLongueur(const void *a, const void *b);
 int compareLexicographique(const void *a, const void *b);
 void triQsort(char **tabMots, int nbMots, double *cpu_time_used, int (*compare)(const void *,const void *));
+char **ajoutMotTabIndiceI(char **tabMots, int *nbMots,int indice, char string[]);
 void testPartieI();

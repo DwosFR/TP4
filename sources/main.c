@@ -57,7 +57,10 @@ int main(int argc, char *argv[])
             affichageRechercheString(tabMots, nb,argv[3]);
 
             //Ajout du mot a l'index i du tableau dynamique
-            //Ne marche pas (segfault)
+            tabMots = ajoutMotTabIndiceI(tabMots, &nb,atoi(argv[5]),argv[4]);
+            printf("Le mot %s a été ajouté dans le tableau dynamique à l'indice %d (donc mot n°%d)\n", argv[4], atoi(argv[5]), atoi(argv[5])+1);
+            printf("Voici le tableau jusqu'a cet indice: \n");
+            affichageTabMotsDynamique(tabMots,atoi(argv[5])+1);
 
             //Tri lexicographique Qsort
             triQsort(tabMots, nb, &cpu_time_used, compareLexicographique);

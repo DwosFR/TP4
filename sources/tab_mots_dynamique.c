@@ -130,17 +130,25 @@ void ajoutMotLigneIFichier(char nom[],char string[],int pos,int nbMots){
 
 //5
 char **ajoutMotTabIndiceI(char **tabMots, int *nbMots,int indice, char string[]){
-int nb = *nbMots;
-tabMots = (char **)realloc(tabMots, nb+1 * sizeof(char *));
-while(nb > indice){
-    if(nb != 0){
-        tabMots[nb] = tabMots[nb-1];
-    }
-    nb--;
+int nb = *nbMots; int i;
+strcat(string,"\n");
+
+char **temp = (char **)calloc(nb+1,sizeof(char *));
+for(i = 0;i<indice;i++){
+    temp[i] = tabMots[i];
 }
-strcpy(tabMots[nb], string);
+temp[indice] = (char *)calloc(strlen(string) + 1,sizeof(char));
+strcpy(temp[indice],string);
+
+for(i = indice + 1;i<nb+1;i++){
+    temp[i] = tabMots[i-1];
+} 
+free(tabMots);
+tabMots = NULL;
+
 *nbMots = *nbMots + 1;
-return tabMots;
+
+return temp;
 }
 
 //6(a)(c)
@@ -600,7 +608,8 @@ void testPartieI()
                     scanf("%s", string);
                     printf("A quelle indice?\n");
                     scanf("%d", &temp);
-                    tabMots = ajoutMotTabIndiceI(tabMots,&nb,4,string);
+                    tabMots = ajoutMotTabIndiceI(tabMots,&nb,temp,string);
+                    printf("Le mot %s a été ajouté dans le tableau dynamique à l'indice %d\n",string,temp);
                     break;
                 case '7' :
                     freeTabMotsDynamique(tabMots,nb);

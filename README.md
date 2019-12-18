@@ -9,6 +9,10 @@ https://github.com/ValynseeleAlexis/TP4
 
 # Commandes exemple pour tester le programme
 
+-Menu pour test chaque fonctionalités séparement : 
+
+.\TP4
+
 -Par Tableau dynamique :
 
 .\TP4 .\files\liste_eval.txt  1 TEND TEST 5 .\files\liste_eval_triée.txt .\files\lettres_pts.txt

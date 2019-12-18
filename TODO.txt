@@ -110,13 +110,19 @@ SEANCE 2 : 10/12/2019
 
 -Partie III 16) et 17) Finalisation des menus et creation de la fonction strConstruction permettant de créer une phrase a partir d'un nombre indeterminé d'arguments
 
+
+18/12/2019 (matin) : 
+
+-Fin de la partie III
+
+-Prise en charge des arguments en ligne de commande
+
+
 Reste à faire :
 
 -Faire fonctioner le programme partie I 5) permettant d'ajouter un mot en position i dans un tableau de mots dynamique de n mots.
 
--Gestion d'un mode d'excution avec argument (partie III 18) )
-
--Ameliorer les commentaires de la Partie II
+-Ameliorer les commentaires de la partie I
 
 -Commenter la partie II (listes_chainees.c)
 
@@ -125,4 +131,4 @@ Reste à faire :
 -Changer les programmes Test Partie I/II/III pour utiliser liste_eval.txt au lieu de liste_dev.txt
 
 
-SEANCE 3 : 18/12/2019
+SEANCE 3 : 18/12/2019 :

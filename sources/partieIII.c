@@ -32,12 +32,6 @@ char *strConstruction(char mot[],...){
     return resultat;
 }
 
-void test(){
-    char *resultat;
-    resultat = strConstruction("Test","De","La","Fonction",".");
-    printf("%s\n",resultat);
-}
-
 //Fonction testant les différentes fonctions de listes_chainees.c (Partie II du TP)
 void testPartieIII()
 {

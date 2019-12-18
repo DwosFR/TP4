@@ -120,7 +120,7 @@ SEANCE 2 : 10/12/2019
 
 Reste à faire :
 
--Faire fonctioner le programme partie I 5) permettant d'ajouter un mot en position i dans un tableau de mots dynamique de n mots.
+-Faire fonctioner le programme partie I 5) permettant d'ajouter un mot en position i dans un tableau de mots dynamique de n mots. - DONE
 
 -Ameliorer les commentaires de la partie I
 

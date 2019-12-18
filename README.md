@@ -6,3 +6,13 @@ gcc -o TP4 -Wall -Wextra -pedantic "./sources/main.c" "./sources/ma_bibliotheque
 
 # Lien GitHub
 https://github.com/ValynseeleAlexis/TP4
+
+# Commandes exemple pour tester le programme
+
+-Par Tableau dynamique :
+
+./TP4 ./files/liste_eval.txt  1 TEND TEST 5 ./files/liste_eval_triée.txt ./files/lettres_pts.txt
+
+-Par listes chainées : 
+
+./TP4 ./files/liste_eval.txt  2 TEND

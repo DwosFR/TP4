@@ -111,7 +111,7 @@ void ajoutMotLigneIFichier(char nom[],char string[],int pos,int nbMots){
     char buffer[256];
 
     assert(f1 = fopen(nom,"r"));
-    assert(f2 = fopen("./files/test.txt", "w"));
+    assert(f2 = fopen("./files/temp.txt", "w"));
 
     for(i = 0;i<pos-1;i++){
         fgets(buffer,256,f1);
@@ -125,7 +125,7 @@ void ajoutMotLigneIFichier(char nom[],char string[],int pos,int nbMots){
     fclose(f1);
     fclose(f2);
     remove(nom);
-    rename("./files/test.txt",nom);
+    rename("./files/temp.txt",nom);
 }
 
 //5

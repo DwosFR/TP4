@@ -132,3 +132,8 @@ Reste à faire :
 
 
 SEANCE 3 : 18/12/2019 :
+
+-Adaptation du code a Windows
+
+-Changement de liste_dev vers liste_eval dans les appels des sous-programmes dans les fonctions de test
+

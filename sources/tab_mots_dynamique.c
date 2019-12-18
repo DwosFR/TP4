@@ -111,7 +111,7 @@ void ajoutMotLigneIFichier(char nom[],char string[],int pos,int nbMots){
     char buffer[256];
 
     assert(f1 = fopen(nom,"r"));
-    assert(f2 = fopen(".\\files\\test.txt", "w"));
+    assert(f2 = fopen(".\\files\\temp.txt", "w"));
 
     for(i = 0;i<pos-1;i++){
         fgets(buffer,256,f1);
@@ -125,7 +125,7 @@ void ajoutMotLigneIFichier(char nom[],char string[],int pos,int nbMots){
     fclose(f1);
     fclose(f2);
     remove(nom);
-    rename(".\\files\\test.txt",nom);
+    rename(".\\files\\temp.txt",nom);
 }
 
 //5
@@ -491,14 +491,14 @@ void testPartieI()
     do
     {
         printf("=================================================\n\n");
-        printf("< 1 > Creation du tableau (liste_dev.txt)\n");
-        printf("< 2 > Affichage du tableau (liste_dev.txt)\n");
+        printf("< 1 > Creation du tableau (liste_eval.txt)\n");
+        printf("< 2 > Affichage du tableau (liste_eval.txt)\n");
         printf("< 3 > Tri lexicographique à bulles\n");
         printf("< 4 > Tri lexicographique qsort\n");
         printf("< 5 > Tri par longueur qsort\n");
         printf("< 6 > Recherche des mots contenant une chaîne de caractères\n");
-        printf("< 7 > Ajout d'un mot en fin de fichier (liste_dev.txt)\n");
-        printf("< 8 > Ajout d'un mot à une ligne i du fichier (liste_dev.txt)\n");
+        printf("< 7 > Ajout d'un mot en fin de fichier (liste_eval.txt)\n");
+        printf("< 8 > Ajout d'un mot à une ligne i du fichier (liste_eval.txt)\n");
         printf("< 9 > ...\n");
         printf("< 0 > Quitter le programme\n\n");
         printf("=================================================\n\n");
@@ -511,8 +511,8 @@ void testPartieI()
             printf("fin du programme Test Partie I\n");
             break;
         case '1':
-            nb = nbMots(".\\files\\liste_dev.txt");
-            tabMots = creationTabMotsDynamique(".\\files\\liste_dev.txt", nb);
+            nb = nbMots(".\\files\\liste_eval.txt");
+            tabMots = creationTabMotsDynamique(".\\files\\liste_eval.txt", nb);
             printf("Tableau crée\n");
             break;
         case '2':
@@ -543,14 +543,14 @@ void testPartieI()
         case '7':
             printf("Que voulez vous ajouter?\n");
             scanf("%s", string);
-            ajoutMotFindeFichier(".\\files\\liste_dev.txt",string);
+            ajoutMotFindeFichier(".\\files\\liste_eval.txt",string);
             break;
         case '8':
             printf("Que voulez vous ajouter?\n");
             scanf("%s", string);
             printf("A quelle ligne?\n");
             scanf("%d",&temp);
-            ajoutMotLigneIFichier(".\\files\\liste_dev.txt",string,temp,nb);
+            ajoutMotLigneIFichier(".\\files\\liste_eval.txt",string,temp,nb);
             break;
         case '9':
             do
@@ -559,7 +559,7 @@ void testPartieI()
                 printf("< 1 > Ecriture du tableau dans un nouveau fichier\n");
                 printf("< 2 > Calcul du meilleur score avec le bareme du polycopié\n");
                 printf("< 3 > Calcul du meilleur score avec le bareme de lettres_pts.txt\n");
-                printf("< 4 > Triage puis ecriture du tableau dans liste_dev_triée.txt\n");
+                printf("< 4 > Triage puis ecriture du tableau dans liste_eval_triée.txt\n");
                 printf("< 5 > Afficher le nombre de mots\n");
                 printf("< 6 > Ajout d'un mot dans le tableau à l'indice i\n");
                 printf("< 7 > Liberation du tableau\n");
@@ -590,7 +590,7 @@ void testPartieI()
                     break;
                 case '4' :
                     triQsort(tabMots, nb, &cpu_time_used, compareLexicographique);
-                    ecritureTabMotsFichier(".\\files\\liste_dev_triée.txt", tabMots, nb);
+                    ecritureTabMotsFichier(".\\files\\liste_eval_triée.txt", tabMots, nb);
                     break;
                 case '5' :
                     printf("Le nombre de mots dans le tableau est : %d\n",nb);

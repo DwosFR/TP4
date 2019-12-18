@@ -14,7 +14,7 @@ Fichier C : Fichier contenant les fonctions en rapport avec la Partie II
 #include <string.h>
 #include <assert.h>
 #include <stdarg.h>
-#include "../headers/tab_mots_dynamique.h"
+#include "..\\headers\\tab_mots_dynamique.h"
 
 //1) types
 
@@ -490,8 +490,8 @@ void testPartieII()
     do
     {
         printf("=================================================\n\n");
-        printf("< 1 > Creation du tableau de listes \n");
-        printf("< 2 > Affichage du tableau de listes \n");
+        printf("< 1 > Creation du tableau de listes (liste_eval.txt)\n");
+        printf("< 2 > Affichage du tableau de listes (liste_eval.txt\n");
         printf("< 3 > Recherche Mot via Tab Dynamique\n");
         printf("< 4 > Recherche Mot via Tab de Listes Chainees\n");
         printf("< 5 > Recherche des mots contenant une chaîne de caractères\n");
@@ -508,8 +508,8 @@ void testPartieII()
             break;
         case '1':
             tab = initialisationTabListes();
-            nb = nbMots(".\\files\\liste_dev.txt");
-            tabMots = creationTabMotsDynamique(".\\files\\liste_dev.txt", nb);
+            nb = nbMots(".\\files\\liste_eval.txt");
+            tabMots = creationTabMotsDynamique(".\\files\\liste_eval.txt", nb);
             triQsort(tabMots, nb, &cpu_time_used, compareLexicographique);
             creationTabListes(tab, tabMots, nb);
             printf("Tableau crée\n");

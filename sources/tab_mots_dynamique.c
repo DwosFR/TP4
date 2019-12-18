@@ -501,7 +501,7 @@ void testPartieI()
         printf("=================================================\n\n");
         printf("< 1 > Creation du tableau (liste_eval.txt)\n");
         printf("< 2 > Affichage du tableau (liste_eval.txt)\n");
-        printf("< 3 > Tri lexicographique à bulles\n");
+        printf("< 3 > Tri lexicographique à bulles (environ 10 min pour liste eval)\n");
         printf("< 4 > Tri lexicographique qsort\n");
         printf("< 5 > Tri par longueur qsort\n");
         printf("< 6 > Recherche des mots contenant une chaîne de caractères\n");
